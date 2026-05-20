@@ -226,7 +226,7 @@ Part 3   CRUD Operations in Compass
     4. create document by using add data section {} in the object formate
 
 
-Part 5  Aggeration pipeline builder
+Part 4 Aggeration pipeline builder
 =====================================
       1.  Department-wise Salary Stats
 
@@ -284,7 +284,7 @@ Part 5  Aggeration pipeline builder
   
         }
 
-Part 5  Schema Analysis & Indexes
+Part 5 Schema Analysis & Indexes
 ====================================
 
  Analyxe schema tab index managment completed
