@@ -1,0 +1,293 @@
+------------- section 1 ------------------
+
+Task 2 : MonogDB Create and explore
+====================================
+         
+
+Part 1  ( Insert, Update, Delete, Bulk Insert)
+
+================================================
+
+    1. Database comapnyDB created then collection employee is also creted
+
+    query : 
+
+    use  comapnyDB    #---created databse
+
+    query: 
+
+    db.employees.insertOne({
+  empId: 101,
+  name: "Ravi",
+  department: "IT",
+  salary: 75000,
+  isActive: true
+})          #----collection and insrted a one employee details
+
+    2. after that bulk insert also done using insertMany
+      
+      query:
+
+      db.employees.insertMany([
+  {
+    empId: 102,
+    name: "Anu",
+    department: "HR",
+    salary: 50000,
+    isActive: true
+  },
+  {
+    empId: 103,
+    name: "Arjun",
+    department: "IT",
+    salary: 80000,
+    isActive: true
+  },
+  {
+    empId: 104,
+    name: "Meera",
+    department: "Finance",
+    salary: 60000,
+    isActive: true
+  },
+  {
+    empId: 105,
+    name: "John",
+    department: "IT",
+    salary: 70000,
+    isActive: false
+  },
+  {
+    empId: 106,
+    name: "Sara",
+    department: "HR",
+    salary: 52000,
+    isActive: true
+  }
+])
+
+     3. salary upadted  using UpdateMany also used $mul operator to multiply 
+      
+     - Update the salary of all employees in the IT department by 10%.
+      
+query:
+
+     db.employees.updateMany(
+  { department: "IT" },
+  {
+    $mul: {
+      salary: 1.10
+    }
+  }
+)
+
+     4. deleted one document or record using deleteOne where condition isActive : false
+    
+    query:
+
+     db.employees.deleteMany({
+  isActive: false
+})
+
+
+Part 2 ( Exporting, Importing, Dumping, and Restore)
+=====================================================
+
+   1. performed Export ,using Export tool data collected both a JSON AND CSV formats
+
+   command in terminal: 
+
+              - mongoexport --db=companyDB --collection=employees --out=employees.json
+              - mongoexport --db=companyDB --collection=employees --type=csv --fields=empId,name,department,salary,isActive --out=employees.csv
+
+   2. performed  dump , used dump tool for database backup . stored the full databse in BSON format for restoration 
+    
+    command:
+
+           mongodump --db=companyDB --out=backup_companyDB
+
+   3. dropped the companyDB database using drop command
+
+   command:
+    
+             db.dropDatabase()
+
+   4.  using mongorestore restored backup from dump
+
+   command:
+
+          mongorestore --db=companyDB backup_companyDB/
+
+    5. then imported json file as new collection importedEmployees
+     
+     command: 
+
+           mongoimport --db=companyDB --collection=importedEmployees --file=employees.json
+
+Part 3 
+==========
+
+        indexing
+        ========
+    
+    1. created a single field index for department field
+       
+       query:
+         
+         db.employees.createIndex({ department: 1 })
+
+    2. created compound index
+        
+      query:
+
+       db.employees.createIndex({ department: 1, salary: -1 })
+
+    3. validated using getIndexes() function to get all indexes in a collection
+      
+      query:
+         
+         db.employees.getIndexes()
+
+
+Part 4  (Theory)
+==================
+
+theory portions of Sharding, clustering, and the Node completed
+
+
+Part 5 objectID and getTimestamp
+====================================
+
+objectID and Time stamp completed
+
+     ObjectId("6a0d2a11535905ac97384947").getTimestamp()
+
+
+-------------------- Section 2 : MongoDB Compass------------------
+
+Task 3
+======
+
+
+Part 1
+============
+
+  1. installation and connected with mongodb is completed
+
+  2. used  document tab for brows data,  schema tab to analyze data
+
+
+Part 2  (Search and Filtering (Querying))
+==========================================
+
+
+  1. performed filtering using filter bar
+
+   query:
+      
+      .  { department: "HR" }
+
+      .  { salary: { $gt: 50000 } }
+
+ 2. performed  combine condition using $and , $or 
+     
+    - find employees who are: Active (isActive: true) ,Belong to either "HR" or "IT" departments.
+
+     
+     query:
+
+
+       ({
+  $and: [
+    { isActive: true },
+    {
+      $or: [
+        { department: "HR" },
+        { department: "IT" }
+      ]
+    }
+  ]
+})
+
+
+Part 3   CRUD Operations in Compass
+======================================
+
+   1. performed update data in compass
+
+       first selected the document using filter bar after  that upadted the data using update button 
+           
+            {$inc: { salary: 10000 }}
+
+    2. dropped a document using deleted button before that using filter bar filtered the data
+
+    3. also dropped all document where employees inactive using deleted button used to dropped
+
+    4. create document by using add data section {} in the object formate
+
+
+Part 5  Aggeration pipeline builder
+=====================================
+      1.  Department-wise Salary Stats
+
+          used $group for to group department
+
+          $avg, $min, $max also used here
+
+          stage operator $group
+
+          query :
+
+            {
+  _id: "$department",
+  avgSalary: { $avg: "$salary" },
+  maxSalary: { $max: "$salary" },
+  minSalary: { $min: "$salary" }
+}    
+
+        
+   2.  next stage added employees with salary > 50000 using $match
+
+       selected stage operator #match then 
+
+       query:
+
+          {salary: { $gt: 50000 }}
+
+    3. Aggregation – Filter , Sort
+
+     - salary displyed in descending order 
+         
+        - selected stage operator as $sort 
+
+    query:
+
+         {salary:-1}
+
+
+    4. Aggregation – Project Fields
+
+        - Only name, salary, and department
+         - Add a new computed field: annualSalary = salary * 12
+
+         stage operator added $Project
+
+          the 
+
+        query:
+
+            {
+                name: 1,
+                salary: 1,
+                department: 1,
+                annualsalary : {$multiply :["$salary",12]}
+  
+        }
+
+Part 5  Schema Analysis & Indexes
+====================================
+
+ Analyxe schema tab index managment completed
+
+    
+
