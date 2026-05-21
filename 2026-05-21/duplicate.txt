@@ -1,0 +1,17 @@
+
+_id  -- not have repeating value
+id  -- not have repeating value
+name  -- not have repeating value
+username  -- not have repeating value
+email  -- not have repeating value
+address.street  -- not have repeating value
+address.suite  -- not have repeating value
+address.city  -- not have repeating value
+address.zipcode  -- not have repeating value
+address.geo.lat  -- not have repeating value
+address.geo.lng  -- not have repeating value
+phone  -- not have repeating value
+website  -- not have repeating value
+company.name  -- not have repeating value
+company.catchPhrase  -- not have repeating value
+company.bs  -- not have repeating value
