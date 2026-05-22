@@ -1,0 +1,14 @@
+Data was inserted into MongoDB .
+
+2. using schema tab analyzed the datatype and the data
+
+3. using export button it was exported   in both csv and json formate
+
+4. The exported CSV file was then loaded into Python using the Pandas library and converted into a DataFrame.
+                       : Zero missing value
+                        ; Zero repeating value both colume and row
+                        ; Data typed have been checked
+
+5. performed identifying missing values and detecting duplicate record. Any duplicates found written into a separate text file
+
+6. Finally, using Python libraries such as Pandas and lxml, the cleaned csv data was converted into XML formate
