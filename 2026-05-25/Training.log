@@ -3,4 +3,4 @@ Meeting was conducted
 
 Parsera Task Completed -
     
-    Used Parsera to scrape product data across 2 pages of the e-commerce website Fashion Nova, extracting details such as breadcrumbs, product name, selling price, regular price, discount percentage, colors, sizes,  product URLs from listing and exportedgi it into a CSV file."
+    Used Parsera to scrape product data across 2 pages of the e-commerce website Fashion Nova, extracting details such as breadcrumbs, product name, selling price, regular price, discount percentage, colors, sizes,  product URLs  and exported it into a CSV file."
