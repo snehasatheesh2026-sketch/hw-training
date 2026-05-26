@@ -17,7 +17,7 @@ exprealty_2026_05_05
 
 
                        
-3. in the second row or record finded the agent_number stored in letters instead of numeric
+3. in the second row  the agent_phone_number stored in letters instead of numeric
 
               --------eg:
 
