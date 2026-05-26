@@ -1,0 +1,6 @@
+meeting was conducted
+
+
+Parsera Task Completed
+
+Used Parsera to Exract product data across 2 pages of the e-commerce website Shopsy, extracting details such as breadcrumbs, product name, selling price, regular price, discount percentage, colors, sizes, and  product URLs from listing and product pages . tThen it exported it into a CSV file
