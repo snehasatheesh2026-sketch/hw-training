@@ -55,7 +55,7 @@ Data set 2 = expealty_2026_04_05
 
 
 
-2. schema inconsistency in some records the images_url missing
+2. schema inconsistency , in some records the images_url field is missing
 
 
 
