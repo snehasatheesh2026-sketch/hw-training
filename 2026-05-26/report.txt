@@ -1,8 +1,8 @@
-exprealty_2026_05_05
---------------------------
+Data set 1 = exprealty_2026_05_05
+---------------------------------
 
  findings and issues
- -----------------
+ ------------------
 
 1. issue found : in some recoreds ,full name stored in  first_name field
   
@@ -17,7 +17,7 @@ exprealty_2026_05_05
 
 
                        
-3. in the second row or record finded the agent_number stored in letters instead of numeric
+3. in the second row  the agent_phone_number stored in letters instead of numeric
 
               --------eg:
 
@@ -36,8 +36,8 @@ exprealty_2026_05_05
 
 
 
-expealty_2026_04_05
------------------------
+Data set 2 = expealty_2026_04_05
+---------------------------------
 
 1.  . issue found : in some recoreds ,full name stored in  first_name field
   
@@ -55,7 +55,7 @@ expealty_2026_04_05
 
 
 
-2. schema inconsistency in some records the images_url missing
+2. schema inconsistency , in some records the images_url field is missing
 
 
 
@@ -65,7 +65,7 @@ expealty_2026_04_05
 
 
 
-4.All records show the country as United States. However, when using the search bar on some of he profiles, noticed that  country is not mentioned.
+4.All records showing the country as United States. However, when using the search bar on some of he profiles, noticed that  country is not mentioned.
  
 
 
