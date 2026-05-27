@@ -18,7 +18,6 @@
 ---------------------------------------
 
 
-1. issue: record ID 2697: , it is showing the developer name, but it is not showing on  the website.
+1. issue: record ID 2697: the developer name is present in the JSON file, but it is not displayed on the website.
 
-
-2. record ID 2695 :  the location is stored, but the website does not showing that location
+2. record ID 2695 :  the location is stored in the JSON file, but it is not displayed on the website
