@@ -10,7 +10,7 @@
 -------------------------------------------------------------
 1. noticed that percentage_discount,promotion_price, promotion_valid_upto, and promotion_valid_from fields are completely empty across the entire dataset
 
-2. All records showing  the promotion_description . However, when using the search bar on  the website the promotion_description  field is not  mentioned
+2. All records showing  the promotion_description . However, when using the search bar on  the website  noticed that the promotion_description  field is not  mentioned
 
 
 
