@@ -1,8 +1,5 @@
 Data set 1 = exprealty_2026_05_05
----------------------------------
-
- findings and issues
- ------------------
+------------------------------------
 
 1. issue found : in some recoreds ,full name stored in  first_name field
   
