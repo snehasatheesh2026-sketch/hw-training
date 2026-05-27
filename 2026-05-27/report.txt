@@ -18,11 +18,7 @@
 ---------------------------------------
 
 
-
-1. noticed that progress field are completely empty across the entire dataset.
-
-
-2. issue: record ID 2697: , it is showing the developer name, but it is not showing on  the website.
+1. issue: record ID 2697: , it is showing the developer name, but it is not showing on  the website.
 
 
-3. record ID 2695 :  the location is stored, but the website does not showing that location
+2. record ID 2695 :  the location is stored, but the website does not showing that location
