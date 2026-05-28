@@ -1,0 +1,82 @@
+1. #DataHut_AT_Interspar_FullDump_20260528.csv
+------------------------------------------
+
+1.Total rows present: 34,540
+
+2. For specific unique_id : 2020004144553 , the selling_price in the CSV file is recorded as 1.65, whereas the website displays a different price.
+
+3 The special_information column contains data stored in the CSV file, but this information is not mentioned on the website.
+
+4 .The following columns are completely empty:
+- care_instructions
+-competitor_product_key
+-dietary_lifestyle
+-dimensions
+-features
+-feeding_recommendation
+-fit_guide
+-heel_height
+-heel_type
+-label_information
+-material_composition
+-netcontent
+-nutritions
+-occasion
+-package_sizeof_sellingprice
+-packaging
+-per_unit_sizedescription
+-percentage_discount
+-perfect_match
+-promotion_type
+-recycling_information
+-return_address
+-servings_per_pack
+-special_nutrition_purpose
+-style
+-upc
+-vitamins
+-warranty
+-warning
+
+5. No other specific issues were found
+
+-----------------------------------------
+
+2. #DataHut_CH_Coop_FullDump_20260528.csv
+------------------------------------------
+
+1.Total rows present: 33207
+
+2.The following columns are completely empty:
+                    brand_type
+                     flavour
+                     grade
+l                   abelling
+                    multi_buy_item_count
+                     multi_buy_items_price_total
+                    nutritions
+                    package_sizeof_sellingprice
+                   per_unit_sizedescription
+                   price_valid_from
+                   promotion_type
+                   promotion_valid_from
+                   promotion_valid_upto
+                   store_addressid
+                   store_addressline1
+                   store_addressline2
+                   store_name
+                   store_postcode
+                   store_state
+                  store_suburb
+                  vitamins
+
+3.No other specific issues were found
+-------------------------------------------------
+3. #DataHut_SI_Mercator_FullDump_20260528.csv
+----------------------------------------------
+
+1. product URLs in the dataset are broken. 
+   The server mercatoronline.si took too long to respond, resulting in a "This site can’t be reached" (ERR_CONNECTION_TIMED_OUT) error in the browser.
+
+
+
