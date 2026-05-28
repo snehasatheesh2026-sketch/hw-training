@@ -1,0 +1,23 @@
+1/DataHut_AT_Dm_PriceExtractions_20260527.CSV
+---------------------------------------------
+
+1. noticed that percentage discount, product description ,region and pack_size fields are completely empty across the entire dataset.
+
+
+
+
+2/ DataHut_AT_Foodora_Penny_PriceExtractions_20260527.CSV
+-------------------------------------------------------------
+1. noticed that percentage_discount,promotion_price, promotion_valid_upto, and promotion_valid_from fields are completely empty across the entire dataset
+
+2. All records showing  the promotion_description . However, when using the search bar on  the website  noticed that the promotion_description  field is not  mentioned
+
+
+
+3/ bayut_uae_project_2026_05_04.json
+---------------------------------------
+
+
+1. issue: record ID 2697: the developer name is present in the JSON file, but it is not displayed on the website.
+
+2. record ID 2695 :  the location is stored in the JSON file, but it is not displayed on the website
