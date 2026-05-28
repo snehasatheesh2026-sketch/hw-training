@@ -48,14 +48,14 @@
 1.Total rows present: 33207
 
 2.The following columns are completely empty:
-                    brand_type
-                     flavour
-                     grade
-l                   abelling
-                    multi_buy_item_count
-                     multi_buy_items_price_total
-                    nutritions
-                    package_sizeof_sellingprice
+                   brand_type
+                   flavour
+                   grade
+                   abelling
+                   multi_buy_item_count
+                   multi_buy_items_price_total
+                   nutritions
+                   package_sizeof_sellingprice
                    per_unit_sizedescription
                    price_valid_from
                    promotion_type
