@@ -1,0 +1,13 @@
+QA Report of amazon_com_sample.csv
+-----------------------------
+
+-Total Rows :1315 (Inculding Headers)
+-Total unique isbn: 477
+-Total unique asin: 477
+
+Issues
+----------
+1 | row no 6 : for this isbn = [9783818601256], The pdp_url, isbn , asin and title in the Csv File do not match the website .
+2 | row no 9 : on the isbn  number = [9783150041741] The seller_name, and delivery_estimate in the CSV file does not match the website
+3 | For this isbn = [9781617728921], the website shows more than 3 sellers, but only 2 sellers are listed in the CSV file.
+    Also, the listed seller delivery_estimate is shown on the website, but it is not stored in the CSV file.
