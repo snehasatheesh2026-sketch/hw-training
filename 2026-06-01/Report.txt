@@ -1,0 +1,52 @@
+
+1. #                 autoteiledirekt_2026_05_15.csv
+--------------------------------------------------------------------------------
+
+
+
+    1. Instead of the Availabilty  field , there is Stock field.   Field name mismatch  CSV contains catalogue price expected catelogue price
+
+    2. Net price mismatch, the website price has been updated
+
+    3. No other specific issues were found
+
+
+2. #                  mister_auto_2026_05_15.csv
+------------------------------------------------------------------------------------
+
+   1.  Spelling mismatch: the correct Field name is catelogue price, but the CSV field is stored as catalogue price
+
+   2. Data Count : slighthly more than 20k (20254)
+
+   3. Instead of Available/Not Available  The  Stock Field conatins value  In Stock,Out of Stock    
+
+   4. No other specific issues were found
+
+
+
+3. #           autodoc_2026_05_15.csv
+-------------------------------------------------------------------
+
+    1. The part number stored in the CSV file is different from the website URL =https://www.autodoc.be/febi-bilstein/1868362
+
+    2. The net_price field should be a float, but some rows contain integer values eg: 1396
+    
+    3. Data count is 22,723, but the requirement is latest 24k+ records
+
+    4.No other specific issues were found
+
+
+
+4 #               winparts_2026_05_15.csv
+---------------------------------------------------------
+
+      1. The data count is not between 16k and 18k; it is 20964
+      
+      2.The net_price field should be a float, but some rows contain integer values ( e.g., 701)
+
+      3. The Catalogue price  should be a float, but some rows contain integer values
+
+      4. Instead of Available/Not Available  The  Stock Field conatins value  In Stock,Out of Stock    
+
+ 
+
