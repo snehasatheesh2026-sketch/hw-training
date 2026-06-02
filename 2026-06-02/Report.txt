@@ -5,7 +5,5 @@
 
      1. Data count  = 19791
 
-     2. Data set is unique
-
-     3. 4.No other specific issues were found
+     2. No other specific issues were found
 
