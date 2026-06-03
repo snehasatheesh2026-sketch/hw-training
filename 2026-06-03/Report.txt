@@ -1,0 +1,83 @@
+
+
+
+1.      DataHut_AT_Spar_PriceExtractions_20260603.CSV
+ -----------------------------------------------------------------
+
+      1. Data Count = 39066
+
+      2. Data set is unique
+
+      3. NNo repeating values were found in the unique_id field.
+
+      issue
+      ------------
+
+      4. the url = https://www.spar.at/produktwelt/schloss-fels-weisser-spritzer-p2020003615207 ,promotion description is present, but the promotion price is not equal to the selling price.
+
+      5.No other specific issues were found 
+
+
+2.                DataHut_AT_Dm_PriceExtractions_20260603.CSV
+------------------------------------------------------------------------------------
+
+    1. Data Count = 16494
+
+    2. Data set is unique
+
+    3.No repeating values were found in the unique_id field.
+
+
+    issues
+    -------------
+    4. In the selling_price field in the CSV, some rows contain values with only one decimal place (e.g., 23.9) and integer values also there.
+
+    5. No other specific issues were found 
+
+
+
+
+3.           DataHut_AT_Billa_PriceExtractions_20260603.CSV
+-----------------------------------------------------------------------------------------
+
+
+       1. Data Count = 12381
+
+       2. No repeating values were found in the unique_id field.
+
+
+       3. Data set is unique
+
+       issues
+       -------------
+
+       4. in the url = https://shop.billa.at/produkte/iglo-kochsalat-mit-erbsen-0010907,where promotion description is present,promotion price is not equal to selling price.
+
+       5. in some rows, the selling_price field contains integer values (701) and  some rows values with only one decimal place (e.g., 21.9).
+
+       6. No other specific issues were found 
+
+
+4.                 machinerytrader_2026_06_03.csv
+-----------------------------------------------------------------------
+
+     1. Data Count = 8679
+
+     2. No repeating values were found in the unique_id field.
+
+     3. Data set is unique
+
+     4. The pcid column is completely empty throughout the file
+     
+     5. No  specific issues were found 
+
+
+
+
+
+
+
+
+
+
+      
