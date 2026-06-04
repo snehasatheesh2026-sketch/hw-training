@@ -1,0 +1,69 @@
+
+
+1.             DataHut_SI_Mercator_FullDump_20260604.CSV                
+---------------------------------------------------------------------------
+                
+
+                1. Data Count = 16927(Inculding Headers)
+
+                2. No repeating values were found in the unique_id field
+
+                3. Data set is unique
+
+
+                issues
+                --------
+
+                4.  The website is not accessible
+
+                5. Date mismatch in  file name DataHut_SI_Mercator_FullDump_20260604.CSV
+
+                6. No  other specific issues were found 
+
+
+
+2.                       DataHut_SI_Dm_FullDump_20260604 (1).CSV
+----------------------------------------------------------------------------------------
+
+                 1. Data Count = 11623(inculding Headers)
+
+                 2. No repeating values were found in the unique_id field
+
+                 3. Data set is unique
+
+                 4.findings : The required data count is 13,048 records, but the CSV file contains only 11,623 records.
+
+                 issues
+                 ---------
+
+                 5. The barcode field in the CSV file contains values
+
+                 6. No other specific issues were found 
+
+
+3.                         DataHut_SI_Spar_FullDump_20260604.CSV               
+---------------------------------------------------------------------------------------------------
+
+                   1. Data Count = 11623
+
+                   2. Data set is unique
+                   
+                   3. No repeating values were found in the unique_id field
+
+                   issues
+                   -------
+
+                   4. The fields variants, competitor_product_key, rating, review, label_information, and retail_limit are empty throughout the entire dataset
+
+                  5. The competitor name provided in the requirement is dm; however, the actual competitor is spar
+
+                  6 . The Price_Valid _From and Promotion_Valid _From dates are not displayed on the website 
+
+                  7. No other specific issues were found
+
+
+                 
+
+
+
+                
