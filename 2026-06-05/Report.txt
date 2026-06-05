@@ -1,0 +1,68 @@
+1.                bhgre_2026_06_05.json
+--------------------------------------------------------
+             1. Data Count = 10064
+
+             2. Data set is unique
+
+             issues
+             ---------
+
+
+             3. The record count in the JSON file is 10,065, which is below the expected range of 11k–12.2k mentioned in the requirement
+
+             4. There is a mismatch between the requirement and the JSON data. The requirement specifies country = United States, whereas the JSON file contains additional country values (NE and Jamaica). 
+                 Examples include records 7334 and 5883
+
+            5. No other specific issues were found
+        
+
+---------------------------------------------------------------------------------------------------------------------------
+2.             century21_us_2026_06_05.json
+-------------------------------------------------
+
+           1. data count = 37873
+
+           2. Data set is  unique
+
+           issues
+           ----------
+
+           3. There is a mismatch between the requirement and the JSON data. 
+               The requirement specifies country = United States, whereas record number 10180 contains country = America."
+
+
+           4.  The record count in the JSON file is 37,873, which is below the expected range of 40k–50k (latest count: 41.8k+) mentioned in the requirement
+
+           5. he requirement specifies that the social, title, and email fields should be empty, but these fields contain values in the json file.
+
+ --------------------------------------------------------------------------------------------------------------------------------------------------
+ 3.   coldwellbankerinternational_2026_06_05.json
+ --------------------------------------------------------
+            
+            1. Data Count = 4166
+
+            2. Data set is unique
+
+            issues
+            ---------
+
+            3.. The field order in the json file does not match the field order specified in the requirement.
+
+            4. he record count in the JSON file is 4,166, which is below the expected range of 4.5k–5k (latest count: 5.4k+) mentioned in the requirement
+
+            5. Additional fields were found in the JSON file that are not specified in the requirement: social, profile_url, and country
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+4.          sutton_2026_06_05.json       
+----------------------------------------------
+       
+           1. Data count = 5045
+
+           2. Data set is unique
+
+           issues
+           -----------
+          
+           3.The record count in the JSON file is 5045, which is below the expected range of 6k–6.5k (latest count: 5.5k+) mentioned in the requirement
+
+           4. he state value QC could not be found on the website, although it is present in the data file
