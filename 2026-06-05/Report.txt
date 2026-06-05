@@ -28,7 +28,7 @@
            ----------
 
            3. There is a mismatch between the requirement and the JSON data. 
-               The requirement specifies country = United States, whereas record number 10180 contains country = America."
+               The requirement specifies country = United States, whereas record number 10180 contains country = America.
 
 
            4.  The record count in the JSON file is 37,873, which is below the expected range of 40k–50k (latest count: 41.8k+) mentioned in the requirement
