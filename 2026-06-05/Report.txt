@@ -65,4 +65,4 @@
           
            3.The record count in the JSON file is 5045, which is below the expected range of 6k–6.5k (latest count: 5.5k+) mentioned in the requirement
 
-           4. he state value QC could not be found on the website, although it is present in the data file
+           4. The state value QC could not be found on the website, although it is present in the data file
