@@ -1,0 +1,79 @@
+QA Report 
+----------------------------------------------------------------------------------
+1.              lazada_2026_06_07.csv
+-------------------------------------------------
+
+     1. Data Count = 1,185
+
+     2.The unique_id field contains only unique values; no duplicates were found
+
+     3. Data Set is unique
+    
+findings : ---
+           - he required data count is 14,223 records, but the CSV file contains only 1,185 records
+          
+           - Some promotion_descriptions are dot-separated rather than comma-separated. 
+              Although this format matches the website (e.g., Row 621), the requirement specifies that promotions should be comma-separated.
+
+            - The  field  others is empty throughout the entire dataset
+
+            - File name date mismatch. The provided file is lazad_2026_06_07.csv, whereas the requirement specifies lazad_2026_05_20.csv
+    issues
+    ----------
+
+    4. The dataset contains additional fields not mentioned in the requirement, including seller_tags, seller_rating,
+            vouchers, product_specifications, rating, reviews, sale, shipping_details, and offer_validity
+
+    5. The regular_price field contains only integer values, whereas the requirement specifies that the field should be in 2-decimal (2f) format
+
+    6. he selling_price field contains values in 1-decimal and integer formats in some rows instead of the required 2-decimal format.
+          For example, Row 163 contains 116.1 and Row 2 contains 138. Several other rows also have similar formatting issues
+
+    7. Some selected_variant values contain special separators such as '+' and '-' instead of being space-separated as required. 
+        For example, Row 443 contains Oily + Extra Mild. Similar issues are present in other rows where '-' is used as a separator
+----------------------------------------------------------------------------------------------------------------------------------
+
+2.                  shopee_2026_06_07.csv
+--------------------------------------------------------------
+
+    1. Data Count = 956
+
+    2. The unique_id field contains only unique values; no duplicates were found
+
+    3. Data set is unique
+
+    findings: ---
+
+        - File name mismatch. The requirement specifies shopee_2026_06_06.csv, but the provided file is shopee_2026_06_07.csv
+
+    issues
+    -------
+
+    4. The regular_price field contains values in integer and 1-decimal formats in some rows instead of the required 2-decimal format. For example, Row 3 contains 64.4 and Row 7 contains 106
+     
+    5. In several rows, the selling_price fieldcontain values in integer and 1-decimal formats instead of the required 2-decimal format
+
+    6. The promotion_price field contains values in integer and 1-decimal formats, while the price_was field contains integer values only, instead of the required 2-decimal format
+
+    7. The PDP URL is showing 'Page Unavailable', the website requires login access.
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.                        sephora_2026_06_07.csv
+--------------------------------------------------------------------------------
+            1. Data Count = 690
+
+            2. The unique_id field contains only unique values; no duplicates were found
+
+            3. Data Set is unique
+
+            issues
+            -------
+
+            4. The regular_price field contains values in integer  in some rows instead of the required 2-decimal format.
+
+            5. The selling_price field contains values in integer  in some rows instead of the required 2-decimal format.
+
+            6. The  field  others is empty across all records.
+
+
+
