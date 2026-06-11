@@ -1,0 +1,59 @@
+1.                  DataHut_AU_Coles_FullDump_20260610.CSV
+------------------------------------------------------------------------------------------------------------------------
+             1. Data Count = (including header): 748,508
+
+             2. The unique_id field contains only unique values; no duplicates were found
+
+
+           issues
+           --------
+             3. Data count mismatch: The expected unique PDP data count is 30,353, but the CSV file contains 27,907 records
+
+             4. The selling_price field contains a mix of integer values and values with one decimal place in some rows (e.g., Row 999: 5, Row 1000: 5.4). 
+                    The field format is inconsistent across the dataset.
+            
+             5. The requirement indicates that the following fields should be empty; 
+                    however, they contain values in the CSV file: producthierarchy_level5, regular_price, producthierarchy_level4, file_name_2, and barcode.
+
+             6.  The following fields are empty in the CSV file and are not mentioned in the requirement: 
+                       promotion_valid_upto, environmental, suitable_for, features, and file_name_1.
+
+             7. The rating field is expected to be a string with two decimal places. 
+                 However, The values stored in integer and some rows contain values that do not follow the required format. For example, Row 428 contains 3.6 instead of 3.60.
+
+            8. The review field is expected to be a string; however, the values in the CSV file appear to be stored as numeric values instead of strings
+
+            9. Format mismatch: The images are provided in .jpg format in the CSV file, whereas the requirement specifies .png format
+
+------------------------------------------------------------------------------------------------------------------------------
+2.                  DataHut_CH_Migros_FullDump_20260611.CSV
+-----------------------------------------------------------------------------------------------------------------------------------
+
+             1. Data Count  = (including header): 1613
+
+             2. The unique_id field contains only unique values; no duplicates were found
+
+             3. pdp url are unique 
+
+
+             findings: 
+             --------------
+            -      The fields store_name, store_addressline1, store_addressline2, store_suburb, 
+                   store_state, store_postcode, store_addressid, brand_type, drained_weight, 
+                   producthierarchy_level6, producthierarchy_level7, promotion_valid_from, 
+                   promotion_valid_upto, package_sizeof_sellingprice, per_unit_sizedescription, p
+                   rice_valid_from, multi_buy_item_count, multi_buy_items_price_total, age_of_the_product, 
+                   age_recommendations, flavour, nutritions, receipies, processed_food, frozen, chilled, 
+                   cooking_part, handmade, max_heating_temperature, special_information, dimensions, 
+                   special_nutrition_purpose, feeding_recommendation, warranty, 
+                   color, model_number, material, usp, dosage_recommendation, 
+                   tasting_note, and food_preservation are completely empty across the CSV file.
+
+            - The selling_price field contains a mix of integer values and values with one decimal place in some rows (e.g., Row 2: 4.5, Row 9: 3). 
+                    The field format is inconsistent across the dataset
+
+            - The regular_price Feld contains a mix of integer values and values with one decimal place in some rows . 
+                    The field format is inconsistent across the dataset
+                    
+            -  No other specific issues were found
+-------------------------------------------------------------------------------------------------------------------------------------
