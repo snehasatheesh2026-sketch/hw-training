@@ -1,0 +1,105 @@
+1. DataHut_AT_Spar_FullDump_20260611.CSV
+----------------------------------------------------------
+     1. Data count  =39447 (Including Headers)
+
+     2. The unique_id field contains only unique values; no duplicates were found
+      
+     3.Requirement Mismatch: The field age_of_the_product is expected to be empty as per the requirement document; however, it contains values in the dataset
+
+     4. No other specific issues were found 
+-----------------------------------------------------------
+2. DataHut_AT_Dm_PriceExtractions_20260612.CSV
+----------------------------------------------------------
+    1. Data Count =  16678(Including Headers)
+
+    2. The unique_id field contains only unique values; no duplicates were found
+
+    3 Data set is unique
+
+    4.No other specific issues were 
+ -------------------------------------------------------------   
+ 3.   DataHut_AT_Billa_PriceExtractions_20260612.CSV
+-------------------------------------------------------------
+   1. Data Count = 12462(Including  Headers)
+
+   2. Data is unique
+
+   3. The unique_id field contains only unique values; no duplicates were found
+   
+   5. Format Mismatch: As per the requirement, the selling_price field should be in 2-decimal format (2F). 
+      However, some rows in the CSV file contain values with only 1 decimal place. 
+      For example, Row 22 contains 47.9 instead of 47.90.
+
+   6. Price Mapping Mismatch: In row no 49,promotion_description is present;
+       however, selling_price contains the promotional price (10.99) while regular_price contains the regular price (12.99).
+        As per the requirement, both selling_price and regular_price should contain the regular price
+        
+   7. No other specific issues were 
+------------------------------------------------------------------------------------
+
+4. bhgre_2026_06_05.json
+------------------------------------------------------------------------------------------
+   1. Data Count = 10064
+
+   2. Data set is unique
+
+   3. The record count in the JSON file is 10,064, which is below the expected range of 11k–12.2k mentioned in the requirement
+
+   4. There is a mismatch between the requirement and the JSON data. The requirement specifies country = United States, 
+   whereas the JSON file contains additional country values (NE and Jamaica). Examples include records 7334 and 5883
+
+   5. No other specific issues were found
+----------------------------------------------------------------------------------------
+   5. sutton_2026_06_05.json
+--------------------------------------------------------------------------------------
+
+   1. Data Count = 5045
+
+   2. data set is unique
+
+   issues:
+   -------
+   3.The record count in the JSON file is 5045, which is below the expected range of 6k–6.5k (latest count: 5.5k+) mentioned in the requirement
+
+   4.The state value QC could not be found on the website, although it is present in the data file
+
+
+   5. No other specific issues were found
+-------------------------------------------------------------------------------------
+6.             century21_us_2026_06_05.json
+---------------------------------------------------------------------------------------
+
+    1. data count = 37873
+
+    2. Data set is  unique
+
+    issues
+    ----------
+
+    3. There is a mismatch between the requirement and the JSON data. 
+        The requirement specifies country = United States, whereas record number 10180 contains country = America.
+
+
+    4.  The record count in the JSON file is 37,873, which is below the expected range of 40k–50k (latest count: 41.8k+) mentioned in the requirement
+
+    5. he requirement specifies that the social, title, and email fields should be empty, but these fields contain values in the json file.
+
+    6. No other specific issues were found
+------------------------------------------------------------------------------------------------
+ 7.   coldwellbankerinternational_2026_06_05.json
+ --------------------------------------------------------
+            
+    1. Data Count = 4166
+
+    2. Data set is unique
+
+    issues
+    ---------
+
+    3.. The field order in the json file does not match the field order specified in the requirement.
+
+    4. The record count in the JSON file is 4,166, which is below the expected range of 4.5k–5k (latest count: 5.4k+) mentioned in the requirement
+
+    5. No other specific issues were found
+
+            
