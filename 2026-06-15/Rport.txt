@@ -1,0 +1,49 @@
+1.DataHut_AT_Dm_PriceExtractions_20260615.CSV
+------------------------------------------------------
+1. Data Count = 16650 (including Headers)
+
+2. The unique_id field contains only unique values; no duplicates were found
+
+issues
+--------
+3. Row 14384: Selling Price is not in the expected 2-decimal format. The value is stored as 1.8 instead of 1.80. 
+    Some rows in the dataset contain prices with a single decimal place (1F format) instead of the required two decimal places (2F format).
+
+4.Row 15924: Promotion Description is present on the website. However, Selling Price is stored as 10.50 in the CSV. As per the requirement, 
+  when a Promotion Description is present, Promotion Price should be the Selling Price (10.50), and both Selling Price and Regular Price should be the Regular Price (15.95).
+  Therefore, Selling Price should be 15.95 instead of 10.50.
+
+
+5. Row 668: The website displays site_shown_uom as "1 St", and the CSV file contains grammage_unit as "stuck". According to the requirement, grammage_unit should be "stuck" only when site_shown_uom contains "Portion Packung" or "ANW". However, the displayed UOM is "St".
+
+
+
+2.autoteiledirekt_2026_06_15.csv
+
+------------------------------------
+issues
+--------
+
+1.Instead of the Availabilty  field , there is Stock field.  
+
+2.Field name mismatch  CSV contains catalogue price expected catelogue price.
+
+3. No other specific issues were  found.
+
+3.autoonderdelen24_2026_06_15.csv
+------------------------------------
+findings:
+----------------
+1. Row 19013: The ref_no_space value is present in the CSV file, but it is not displayed on the website.
+
+2. No other specific issues were  found.
+
+4.autodoc_2026_06_15.csv
+---------------------------
+findings
+----------------
+1. The requirement specifies a count of 19K–25K (latest: 24K+). However, the CSV file contains only 23,242 records.
+
+2. Row 5: The part_number is stored as "4687" in the CSV file, whereas the website displays the product number as "04687". The leading zero is missing in the extracted part_number.
+
+3. No other specific issues were  found.
