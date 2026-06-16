@@ -1,0 +1,33 @@
+QA report
+------------
+1.DataHut_AT_Spar_PriceExtractions_20260616.CSV
+----------------------------------------------
+   1.Data count mismatch. The requirement specifies a count of 39,065 records; however, the CSV file contains 39,707 records
+   2. no other issues found
+
+2.DataHut_AT_Billa_PriceExtractions_20260616.CSV
+---------------------------------------------------
+
+   1.The site_shown_uom field is missing in the CSV file for the following URLs, even though the value is available on the website:
+     https://shop.billa.at/produkte/ja-natuerlich-huehnerkeulen-0095497,
+     https://shop.billa.at/produkte/ja-natuerlich-huehnerfluegerl-0095499
+
+   2. In Row No. 12074,the website displays AKTION, but it is not captured in the promotion_description field in the CSV file. 
+      Additionally, according to the requirement, for AKTION products with all prices available, 
+      the selling_price and promotion_price should be the same. However, in this row, the selling_price and promotion_price have different values.
+
+
+
+3.DataHut_AT_DM_PriceExtractions_20260616.CSV
+----------------------------------------------
+   1. The required data count is 16,642, but the CSV file contains 16,683 records
+   2.No issues were found
+
+4. DataHut_SI_Dm_PriceExtractions_20260616.CSV
+-------------------------------------------------------
+   1.The requirement data count is 13,268; however, the CSV file contains 11,524 records
+
+   2. The grammage_quantity and grammage_unit values do not match the website for some records. 
+      For example, for unique_id: 3830049643640, the website shows 25 vr, whereas the CSV file contains 1 kos
+
+   3. no other issues found
