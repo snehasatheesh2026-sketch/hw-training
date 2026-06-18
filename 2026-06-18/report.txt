@@ -1,0 +1,6 @@
+Completed the following Python topics: Function, Class, Object,
+ OOP concepts, self argument, Constructor and Destructor, File operations, 
+ Positional and Keyword arguments (args, kwargs), Generators, 
+ return and yield, try-except, String formatting, Module importing, 
+ Python memory reference, List comprehension, Exceptions and errors, 
+ Code readability, optimization and reliability, PEP8 standards, and best practice coding
