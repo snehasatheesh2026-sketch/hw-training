@@ -49,6 +49,7 @@ class EndCategories:
         self.allergens_url = "https://auchan.hu/api/v2/cache/products/{}/variants/{}/details/allergensDetailed"
 
         self.ingredients_url  = "https://auchan.hu/api/v2/cache/products/{}/variants/{}/details/ingredients"
+
         self.params = {
             'cacheSegmentationCode': 'DS',
             'hl': 'hu',
@@ -242,6 +243,7 @@ class EndCategories:
                         self.seen_pdp_urls.add(pdp_url)
 
                         cart_info = pdp_url_details.get('cartInfo', {}) or {}
+                        
                         categories_list = product.get('categories', []) or []
 
                         unique_id =  pdp_url_details.get("productId",'') or ""
@@ -335,7 +337,7 @@ class EndCategories:
 
                             ingredient_response = self.session.get(in_url, params= self.details_params, headers= self.headers)
 
-                            if ingredient_response == 200:
+                            if ingredient_response.status_code == 200:
 
                                 in_json_data = ingredient_response.json()
 
