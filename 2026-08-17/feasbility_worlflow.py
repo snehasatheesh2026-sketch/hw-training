@@ -152,6 +152,8 @@ nutritional_information = "; ".join(
 
 product_id = data.get('productID','')
 
+product_name = data.get('name')
+
 product_unique_key = str(product_id)+"P"
 selling_price = data.get('price','')
 
