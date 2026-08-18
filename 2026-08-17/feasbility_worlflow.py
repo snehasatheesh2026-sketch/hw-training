@@ -157,7 +157,9 @@ selling_price = data.get('price','')
 
 regular_price = data.get('originalPrice','')
 
-product_infos = data.get('foodLabelling',{}).get('productInfos',[])\
+product_infos = data.get('foodLabelling',{}).get('productInfos',[])
+
+image_1 =data.get('urls')
 
 netweight = next(
     x["labelValues"][0]
