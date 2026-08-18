@@ -248,5 +248,5 @@ price_per_base_unit = (
     f"{float(price__base):.2f} € je "
     f"{vaule_base} {unit_base}"
 )
-
+product_decsription = data.get('description','')
 price_per_base_unit
