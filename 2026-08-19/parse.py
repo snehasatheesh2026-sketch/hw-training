@@ -13,7 +13,7 @@ from settings import (
 )
 
 
-class Crawler:
+class Parser:
     """Crawling Product Details"""
 
     def __init__(self):
@@ -70,7 +70,7 @@ class Crawler:
                 ] = str(product_id)
 
 
-                # Product detail API
+                
 
                 response = self.session.post(
                     API_URL,
@@ -186,9 +186,7 @@ class Crawler:
         site_shown_uom = ""
 
 
-        # -----------------------------------------
-        # Basic product data
-        # -----------------------------------------
+
 
         product_id = data.get(
             "productID",
@@ -237,9 +235,7 @@ class Crawler:
         )
 
 
-        # -----------------------------------------
-        # Product information
-        # -----------------------------------------
+        
 
         product_infos = (
             data.get(
@@ -252,9 +248,7 @@ class Crawler:
         )
 
 
-        # -----------------------------------------
-        # Attributes
-        # -----------------------------------------
+        
 
         attributes = data.get(
             "attributes",
@@ -352,9 +346,7 @@ class Crawler:
                     price_per_base_unit = ""
 
 
-        # -----------------------------------------
-        # Nutrition
-        # -----------------------------------------
+
 
         nutrition_facts = (
             data.get(
@@ -541,9 +533,7 @@ class Crawler:
             )
 
 
-        # -----------------------------------------
-        # Your Mongo item
-        # -----------------------------------------
+        
         item ={
                             "unique_id": product_id,
                             "competitor_name": "foodora",
@@ -726,7 +716,7 @@ if __name__ == "__main__":
     )
 
 
-    crawler = Crawler()
+    crawler = Parser()
 
     try:
 
