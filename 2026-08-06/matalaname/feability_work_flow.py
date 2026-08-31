@@ -6,58 +6,66 @@ params = {'product_version': '2035',
  'variables': '{"filter":{"category_uid":{"in":["MTk2NA=="]}},"pageSize":40,"currentPage":3,"sort":{}}'}
 
 headers = {
+    'accept': '*/*',
+    'accept-language': 'en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7',
+    'authorization': '',
+    'content-type': 'application/json',
+    'origin': 'https://www.matalanme.com',
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36',
+    'website': 'matalan',
 }
 
+
+# # import json
+# import requests
+
 # import json
-import requests
 
-import json
+# url = "https://api.bfab.com/graphql"
 
-url = "https://api.bfab.com/graphql"
-
-params = params
+# params = params
 
 
-# Convert JSON string to Python dict
-variables = json.loads(params["variables"])
+# # Convert JSON string to Python dict
+# variables = json.loads(params["variables"])
 
-# Change category ID
-# variables["filter"]["category_uid"]["in"] = ["NEW_CATEGORY_UID"]
+# # Change category ID
+# # variables["filter"]["category_uid"]["in"] = ["NEW_CATEGORY_UID"]
 
-# Change page number
-variables["currentPage"] = 3
+# # Change page number
+# variables["currentPage"] = 3
 
-#
-# Convert back to JSON string
-params["variables"] = json.dumps(variables)
-
-
-response = requests.get(url, params=params, headers= headers)
-
-data = response.json()
-
-products = data.get('data',"").get('products',"").get("items","")
-
-print(len(products))
+# #
+# # Convert back to JSON string
+# params["variables"] = json.dumps(variables)
 
 
-for product in products:
+# response = requests.get(url, params=params, headers= headers)
 
-    name = product.get('name')
+# data = response.json()
 
-    brand_name = product.get('brand_name','')
+# products = data.get('data',"").get('products',"").get("items","")
 
-    sku = product.get('sku','')
+# print(len(products))
 
-    product_id = product.get("id","")
 
-    url = product.get('url_key','')
+# for product in products:
 
-    product_availibity = product.get("stock_status","")
+#     name = product.get('name')
 
-    bread_crambes = product.get('categories','')
+#     brand_name = product.get('brand_name','')
 
-    print(url)
+#     sku = product.get('sku','')
+
+#     product_id = product.get("id","")
+
+#     url = product.get('url_key','')
+
+#     product_availibity = product.get("stock_status","")
+
+#     bread_crambes = product.get('categories','')
+
+#     print(url)
 
 ##############################PARSER##############################
 
@@ -86,6 +94,8 @@ data = response.json()
 
 items = data.get("data", {}).get("products", {}).get("items", [])
 
+print(items)
+
 for item in items:
 
     variants = item.get("variants", [])
@@ -103,59 +113,60 @@ for item in items:
 
             elif attr.get("code") == "color":
                 colors.append(attr.get("label"))
+    print(colors)
 
     # Remove duplicate colors
-    colors = list(dict.fromkeys(colors))
+    # colors = list(dict.fromkeys(colors))
 
-    # Use the first variant for product details
-    product = variants[0].get("product", {})
+    # # Use the first variant for product details
+    # product = variants[0].get("product", {})
 
-    url = product.get("url_key", "")
-    product_id = product.get("id", "")
-    images = product.get("media_gallery", [])
-    name = product.get("name", "")
+    # url = product.get("url_key", "")
+    # product_id = product.get("id", "")
+    # images = product.get("media_gallery", [])
+    # name = product.get("name", "")
 
-    selling_price = (
-        product.get("price_range", {})
-        .get("minimum_price", {})
-        .get("final_price", {})
-        .get("value", "")
-    )
+    # selling_price = (
+    #     product.get("price_range", {})
+    #     .get("minimum_price", {})
+    #     .get("final_price", {})
+    #     .get("value", "")
+    # )
 
-    currency = (
-        product.get("price_range", {})
-        .get("minimum_price", {})
-        .get("final_price", {})
-        .get("currency", "")
-    )
+    # currency = (
+    #     product.get("price_range", {})
+    #     .get("minimum_price", {})
+    #     .get("final_price", {})
+    #     .get("currency", "")
+    # )
 
-    regular_price = (
-        product.get("price_range", {})
-        .get("minimum_price", {})
-        .get("regular_price", {})
-        .get("value", "")
-    )
+    # regular_price = (
+    #     product.get("price_range", {})
+    #     .get("minimum_price", {})
+    #     .get("regular_price", {})
+    #     .get("value", "")
+    # )
 
-    attrs = json.loads(product.get("product_custom_attributes", "[]"))
+    # attrs = json.loads(product.get("product_custom_attributes", "[]"))
 
-    gender = ""
-    description = ""
-    details = {}
+    # gender = ""
+    # description = ""
+    # details = {}
 
-    for section in attrs:
+    # for section in attrs:
 
-        if section.get("title") == "Specifications":
+    #     if section.get("title") == "Specifications":
 
-            for spec in section.get("children", []):
+    #         for spec in section.get("children", []):
 
-                details[spec["label"]] = spec["value"]
+    #             details[spec["label"]] = spec["value"]
 
-                if spec["label"] == "Gender":
-                    gender = spec["value"]
+    #             if spec["label"] == "Gender":
+    #                 gender = spec["value"]
 
-        elif section.get("title") == "Description":
+    #     elif section.get("title") == "Description":
 
-            description = section.get("value", "")
+    #         description = section.get("value", "")
 
 
 
