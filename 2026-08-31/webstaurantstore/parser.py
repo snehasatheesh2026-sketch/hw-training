@@ -99,7 +99,6 @@ class Parser:
 
         # EXTRACT
         product_name = sel.xpath(PRODUCT_NAME_XPATH).get()
-        print(product_name)
         documents = [url for url in sel.xpath(DOCUMENT_XPATH).getall() if url.lower().endswith((".pdf",".doc",".docx", ".xls", ".xlsx", ".ppt",".pptx",".zip"))]
         documents = list(dict.fromkeys(documents))
         video = sel.xpath(VIDEO_XPATH).get(default="")
