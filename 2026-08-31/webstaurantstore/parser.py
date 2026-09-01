@@ -50,7 +50,7 @@ class Parser:
 
     def parse_item(self, url, response, meta):
         """item part"""
-        Selected_Variant = {}
+        selected_Variant = {}
         configurable_attributes = []
         faqs = []
         seen = set()
@@ -103,34 +103,44 @@ class Parser:
         documents = list(dict.fromkeys(documents))
         video = sel.xpath(VIDEO_XPATH).get(default="")
         for heading in sel.xpath(VARIANT_HEADING_XPATH):
-                s_name = heading.xpath('normalize-space(text())').get("").replace(":", "").strip()
+                selected_name = heading.xpath('normalize-space(text())').get("").replace(":", "").strip()
         
-                s_value = heading.xpath('./span/text()').get("").strip()
+                selected_value = heading.xpath('./span/text()').get("").strip()
         
-                if s_name and s_value:
-                    Selected_Variant[s_name] = s_value
+                if selected_name and selected_value:
+                    selected_Variant[selected_name] = selected_value
         
-                    if s_name not in configurable_attributes:
-                            configurable_attributes.append(s_name)
+                    if selected_name not in configurable_attributes:
+                            configurable_attributes.append(selected_name)
+
         product_overview = sel.xpath(PRODUCT_OVERVIEW_XPATH).getall()
+
         raw_rating = sel.xpath(RATING_XPATH).get(default="")
         matchs = re.search(r'(\d+(?:\.\d+)?)', raw_rating)
+
         price_container = sel.xpath(PRICE_CONTAINER_XPATH)
         full_price_text = " ".join( x.strip() for x in price_container.xpath(".//text()").getall() if x.strip())
-        brand =sel.xpath (BRAND_XPATH).get(default="")
-        intro_container = sel.xpath(INTRO_CONTAINER_XPATH)
 
+        brand =sel.xpath (BRAND_XPATH).get(default="")
+
+        intro_container = sel.xpath(INTRO_CONTAINER_XPATH)
         intro_headline = intro_container.xpath(INTRO_HEADLINE_XPATH).get(default="") if intro_container else ""
         description = intro_container.xpath(DESCRIPTION_XPATH).get(default="") if intro_container else ""
 
         if not description:
             details_group = sel.xpath(DETAILS_GROUP_XPATH)
             description = details_group.xpath(DETAILS_DESCRIPTION_XPATH).get(default="") if details_group else ""
+
         shipping_info = sel.xpath(SHIPPING_INFO_XPATH).get(default="")
+
         upc = sel.xpath(UPC_XPATH).get(default="")
+
         specification_keys = sel.xpath(SPECIFICATION_KEY_XPATH).getall()
+
         specification_values = sel.xpath(SPECIFICATION_VALUE_XPATH)
+
         related_product_skus = sel.xpath(RELATED_PRODUCT_SKUS_XPATH).getall()
+
         for faq in sel.xpath(FAQ_XPATH):
            question = faq.xpath(QUESTION_XPATH).get(default="")
            answer = " ".join(x.strip() for x in faq.xpath(ANSWER_XPATH).getall() if x.strip())
@@ -139,6 +149,7 @@ class Parser:
                if key not in seen:
                      seen.add(key)
                      faqs.append({ "Question": question,"Answer": answer})
+
         for script in sel.xpath(PRODUCT_SCRIPT_XPATH).getall():
            if "productTemplates" in script:
              try:
@@ -150,12 +161,14 @@ class Parser:
                 break
              except Exception:
                pass
+             
         if sku:
            for href in sel.xpath(IMAGE_XPATH).getall():
               if f"/products/large/{sku}/" in href:
                  match = re.search(r"(images/products/large/.*)", href)
                  if match:
                    image_urls.append(match.group(1))
+
         for group in product.get("variationMembership", {}).get("variationGroups", []):
             attr = group.get("optionName", "")
             if attr == "Height Style":
@@ -168,37 +181,39 @@ class Parser:
 
                   variants.setdefault(variant_sku, {"sku": variant_sku})
                   variants[variant_sku][attr] = item_var.get("variationText", "")
+
         for script in sel.xpath(MODEL_JSON_XPATH).getall():
             try:
                data = json.loads(script.strip())
-
                nodes = data if isinstance(data, list) else data.get("@graph", [data])
 
                for node in nodes:
                  if isinstance(node, dict) and node.get("@type") == "3DModel":
-                   for obj in node.get("encoding", []):
-                       urls= obj.get("contentUrl")
+                   for encod in node.get("encoding", []):
+                       urls= encod.get("contentUrl")
 
                        if urls:
                            model_list.append(urls.lstrip("/"))
 
             except json.JSONDecodeError:
               continue
-        bc_script = sel.xpath(BREADCRUMB_XPATH).get()
 
-        if bc_script:
+        bread_crumb_script = sel.xpath(BREADCRUMB_XPATH).get()
+
+        if bread_crumb_script:
             try:
-              data = json.loads(bc_script.strip())
+              
+              data = json.loads(bread_crumb_script.strip())
 
               nodes = data if isinstance(data, list) else data.get("@graph", [data])
 
               for node in nodes:
-                if isinstance(node, dict) and node.get("@type") == "BreadcrumbList":
 
+                if isinstance(node, dict) and node.get("@type") == "BreadcrumbList":
                     crumbs = [
-                    cb.get("name")
-                    for cb in node.get("itemListElement", [])
-                    if cb.get("name")
+                        breadcrumb.get("name")
+                    for     breadcrumb in node.get("itemListElement", [])
+                    if     breadcrumb.get("name")
                     ]
                     if crumbs:
                        page_breadcrumbs = " > ".join(crumbs[:-1])
@@ -211,7 +226,7 @@ class Parser:
         product_name = product_name.strip() if product_name else ""
         product_documents = ",".join(documents) if documents else ""
         video = video if video else ""
-        Selected_Variant = Selected_Variant if Selected_Variant else ""
+        selected_Variant = selected_Variant if selected_Variant else ""
         configurable_attributes = (",".join(configurable_attributes)if configurable_attributes else "")
         Features = ", ".join(x.strip() for x in product_overview if x.strip())
         rating = matchs.group(1) if matchs else ""
@@ -222,7 +237,7 @@ class Parser:
         intro_headline = intro_headline.strip()
         description = description.strip()
         product_details = f"{intro_headline} {description}".strip()
-        Specifications = { key.strip(): " ".join(value.xpath(".//text()").getall()).strip()
+        specifications = { key.strip(): " ".join(value.xpath(".//text()").getall()).strip()
                           for key, value in zip(specification_keys, specification_values)} or ""
         related_product_skus = ",".join(sku.split("relatedproduct_companion_")[-1] for sku in related_product_skus)
         faq_json = json.dumps(faqs,ensure_ascii=False,separators=(",", ":")) if faqs else ""
@@ -251,9 +266,9 @@ class Parser:
         item['price_unit'] = price_unit
         item['product_details'] = product_details
         item['features'] = Features
-        item['selected_variant'] = Selected_Variant
+        item['selected_variant'] = selected_Variant
         item['configurable_attributes'] = configurable_attributes
-        item['specifications'] = Specifications
+        item['specifications'] = specifications
         item['related_product_skus'] = related_product_skus
         item['faq'] = faq_json
         item['images'] = Product_Image_URLs
