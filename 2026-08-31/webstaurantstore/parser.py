@@ -228,7 +228,7 @@ class Parser:
         video = video if video else ""
         selected_Variant = selected_Variant if selected_Variant else ""
         configurable_attributes = (",".join(configurable_attributes)if configurable_attributes else "")
-        Features = ", ".join(x.strip() for x in product_overview if x.strip())
+        features = ", ".join(x.strip() for x in product_overview if x.strip())
         rating = matchs.group(1) if matchs else ""
         price_match = re.search(r"\$?\s*([\d,]+(?:\.\d+)?)", full_price_text)
         price = price_match.group(1).replace(",", "") if price_match else ""
@@ -242,7 +242,7 @@ class Parser:
         related_product_skus = ",".join(sku.split("relatedproduct_companion_")[-1] for sku in related_product_skus)
         faq_json = json.dumps(faqs,ensure_ascii=False,separators=(",", ":")) if faqs else ""
         image_urls = list(dict.fromkeys(image_urls))
-        Product_Image_URLs = ",".join(image_urls) if image_urls else ""
+        product_image_urls = ",".join(image_urls) if image_urls else ""
         result = list(variants.values()) if variants else ""
         models = ",".join(model_list) if model_list else ""
 
@@ -265,13 +265,13 @@ class Parser:
         item['price'] = price
         item['price_unit'] = price_unit
         item['product_details'] = product_details
-        item['features'] = Features
+        item['features'] = features
         item['selected_variant'] = selected_Variant
         item['configurable_attributes'] = configurable_attributes
         item['specifications'] = specifications
         item['related_product_skus'] = related_product_skus
         item['faq'] = faq_json
-        item['images'] = Product_Image_URLs
+        item['images'] = product_image_urls
         item['Configurable Variations'] = result
         item['m_3Dmodel'] = models
         item['breadcrumbs'] =  page_breadcrumbs
