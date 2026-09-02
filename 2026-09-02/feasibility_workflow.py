@@ -58,7 +58,6 @@ def find_items(data):
 
 find_items(data)
 
-print(len(products))
 
 for product in products:
     
